@@ -1,0 +1,47 @@
+# IDENTIFIER: začína písmenom, môže obsahovať písmená, čísla, _
+(START, "a"-"z", "A"-"Z") -> ID
+(ID, "a"-"z", "A"-"Z", "0"-"9", "_") -> ID
+{ID = IDENTIFIER}
+
+# NUMBER: celé čísla
+(START, "0"-"9") -> NUM
+(NUM, "0"-"9") -> NUM
+{NUM = INT}
+
+# Znak =
+(START, "=") -> EQ
+(EQ, "=") -> EQEQ
+{EQ = ASSIGN}
+{EQEQ = EQ}
+
+# Znak !
+(START, "!") -> EXCL
+(EXCL, "=") -> NEQ
+{NEQ = NEQ}
+
+# PLUS
+(START, "+") -> PLUS
+{PLUS = ADD}
+
+# MINUS
+(START, "-") -> MINUS
+{MINUS = SUB}
+
+# MULTIPLY
+(START, "*") -> MULT
+{MULT = MUL}
+
+# DIVIDE
+(START, "/") -> DIV
+{DIV = DIV}
+
+# WHITESPACE (ignorujeme)
+(START, " ", "\t", "\n") -> WS
+(WS, " ", "\t", "\n") -> WS
+{WS = IGNORE}
+
+# Keywords
+? if -> IF
+? else -> ELSE
+? while -> WHILE
+? return -> RETURN

@@ -1,3 +1,5 @@
 # IFJ
-Lexikálny analyzátoz
+Lexikálny analyzátor
+
+
 2025/26

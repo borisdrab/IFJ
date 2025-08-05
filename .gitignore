@@ -1,2 +1,4 @@
+output_lexer.c
+lexer
+tokens.txt
 __pycache__/
-*.pyc
